@@ -26,6 +26,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            buildConfigField "String", "BASE_URL", "\"https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/\""
+        }
+
+        prod {
+            buildConfigField "String", "BASE_URL", "\"https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/\""
+        }
+    }
 
     packagingOptions {
         exclude 'META-INF/com.android.tools/proguard/coroutines.pro'
