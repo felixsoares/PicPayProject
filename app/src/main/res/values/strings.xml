@@ -2,5 +2,7 @@
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="something_wrong">Ops! Algo inesperado aconteceu!</string>
+    <string name="try_again">Tente novamente</string>
 
 </resources>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.model.User
+import com.picpay.desafio.android.databinding.ListItemUserBinding
 
 class UserListAdapter : RecyclerView.Adapter<UserListItemViewHolder>() {
 
@@ -25,7 +26,8 @@ class UserListAdapter : RecyclerView.Adapter<UserListItemViewHolder>() {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item_user, parent, false)
 
-        return UserListItemViewHolder(view)
+        val binding = ListItemUserBinding.bind(view)
+        return UserListItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: UserListItemViewHolder, position: Int) {
