@@ -1,11 +1,11 @@
 package com.picpay.desafio.android
 
+import android.os.SystemClock
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.picpay.desafio.android.ui.MainActivity
 import okhttp3.mockwebserver.Dispatcher
@@ -25,9 +25,7 @@ class MainActivityTest {
     fun shouldDisplayTitle() {
         launchActivity<MainActivity>().apply {
             val expectedTitle = context.getString(R.string.title)
-
             moveToState(Lifecycle.State.RESUMED)
-
             onView(withText(expectedTitle)).check(matches(isDisplayed()))
         }
     }
@@ -46,7 +44,9 @@ class MainActivityTest {
         server.start(serverPort)
 
         launchActivity<MainActivity>().apply {
-            // TODO("validate if list displays items returned by server")
+            val expectedTitle = context.getString(R.string.title)
+            onView(withId(R.id.progress_circular)).check(matches(isDisplayed()))
+            SystemClock.sleep(3500)
         }
 
         server.close()
